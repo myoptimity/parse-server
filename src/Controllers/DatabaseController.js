@@ -1683,8 +1683,8 @@ class DatabaseController {
       VolatileClassesSchemas: SchemaController.VolatileClassesSchemas,
     });
     return Promise.all([
-      usernameUniqueness,
-      emailUniqueness,
+      //usernameUniqueness,
+      //emailUniqueness,
       roleUniqueness,
       adapterInit,
       indexPromise,
