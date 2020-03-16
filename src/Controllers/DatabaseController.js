@@ -1626,12 +1626,12 @@ class DatabaseController {
   // TODO: create indexes on first creation of a _User object. Otherwise it's impossible to
   // have a Parse app without it having a _User collection.
   performInitialization() {
-    const requiredUserFields = {
-      fields: {
-        ...SchemaController.defaultColumns._Default,
-        ...SchemaController.defaultColumns._User,
-      },
-    };
+    // const requiredUserFields = {
+    //   fields: {
+    //     ...SchemaController.defaultColumns._Default,
+    //     ...SchemaController.defaultColumns._User,
+    //   },
+    // };
     const requiredRoleFields = {
       fields: {
         ...SchemaController.defaultColumns._Default,
@@ -1639,33 +1639,33 @@ class DatabaseController {
       },
     };
 
-    const userClassPromise = this.loadSchema().then(schema =>
-      schema.enforceClassExists('_User')
-    );
+    // const userClassPromise = this.loadSchema().then(schema =>
+    //   schema.enforceClassExists('_User')
+    // );
     const roleClassPromise = this.loadSchema().then(schema =>
       schema.enforceClassExists('_Role')
     );
 
-    const usernameUniqueness = userClassPromise
-      .then(() =>
-        this.adapter.ensureUniqueness('_User', requiredUserFields, ['username'])
-      )
-      .catch(error => {
-        logger.warn('Unable to ensure uniqueness for usernames: ', error);
-        throw error;
-      });
+    // const usernameUniqueness = userClassPromise
+    //   .then(() =>
+    //     this.adapter.ensureUniqueness('_User', requiredUserFields, ['username'])
+    //   )
+    //   .catch(error => {
+    //     logger.warn('Unable to ensure uniqueness for usernames: ', error);
+    //     throw error;
+    //   });
 
-    const emailUniqueness = userClassPromise
-      .then(() =>
-        this.adapter.ensureUniqueness('_User', requiredUserFields, ['email'])
-      )
-      .catch(error => {
-        logger.warn(
-          'Unable to ensure uniqueness for user email addresses: ',
-          error
-        );
-        throw error;
-      });
+    // const emailUniqueness = userClassPromise
+    //   .then(() =>
+    //     this.adapter.ensureUniqueness('_User', requiredUserFields, ['email'])
+    //   )
+    //   .catch(error => {
+    //     logger.warn(
+    //       'Unable to ensure uniqueness for user email addresses: ',
+    //       error
+    //     );
+    //     throw error;
+    //   });
 
     const roleUniqueness = roleClassPromise
       .then(() =>
