@@ -1423,6 +1423,13 @@ RestWrite.prototype.runDatabaseOperation = function() {
     // Ignore createdAt when update
     delete this.data.createdAt;
 
+    if(
+      this.className === '_User' &&
+      this.data._hashed_password
+    ) {
+      this.data._account_lockout_expires_at = Parse._encode(new Date());
+    }
+
     let defer = Promise.resolve();
     // if password history is enabled then save the current password to history
     if (
