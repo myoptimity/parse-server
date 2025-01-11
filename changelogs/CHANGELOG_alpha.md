@@ -1,3 +1,10 @@
+# [8.0.0-alpha.2](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.1...8.0.0-alpha.2) (2025-01-11)
+
+
+### Bug Fixes
+
+* Push adapter not loading on some versions of Node 22 ([#9524](https://github.com/parse-community/parse-server/issues/9524)) ([ff7f671](https://github.com/parse-community/parse-server/commit/ff7f671c79f5dcdc44e4319a10f3654e12662c23))
+
 # [8.0.0-alpha.1](https://github.com/parse-community/parse-server/compare/7.4.0-alpha.7...8.0.0-alpha.1) (2025-01-11)
 
 
