@@ -1,3 +1,10 @@
+# [8.0.0-alpha.4](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.3...8.0.0-alpha.4) (2025-01-12)
+
+
+### Features
+
+* Deprecate `PublicAPIRouter` in favor of `PagesRouter` ([#9526](https://github.com/parse-community/parse-server/issues/9526)) ([7f66629](https://github.com/parse-community/parse-server/commit/7f666292e8b9692966672486b7108edefc356309))
+
 # [8.0.0-alpha.3](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.2...8.0.0-alpha.3) (2025-01-12)
 
 
