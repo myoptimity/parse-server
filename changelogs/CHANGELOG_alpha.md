@@ -1,3 +1,10 @@
+# [8.0.0-alpha.9](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.8...8.0.0-alpha.9) (2025-01-30)
+
+
+### Features
+
+* Add TypeScript support ([#9550](https://github.com/parse-community/parse-server/issues/9550)) ([59e46d0](https://github.com/parse-community/parse-server/commit/59e46d0aea3e6529994d98160d993144b8075291))
+
 # [8.0.0-alpha.8](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.7...8.0.0-alpha.8) (2025-01-30)
 
 
