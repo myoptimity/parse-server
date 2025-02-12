@@ -1,3 +1,10 @@
+# [8.0.0-alpha.11](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.10...8.0.0-alpha.11) (2025-02-12)
+
+
+### Features
+
+* Add dynamic master key by setting Parse Server option `masterKey` to a function ([#9582](https://github.com/parse-community/parse-server/issues/9582)) ([6f1d161](https://github.com/parse-community/parse-server/commit/6f1d161a2f263a166981f9544cf2aadce65afe23))
+
 # [8.0.0-alpha.10](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.9...8.0.0-alpha.10) (2025-02-01)
 
 
