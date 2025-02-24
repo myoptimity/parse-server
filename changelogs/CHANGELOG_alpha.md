@@ -1,3 +1,10 @@
+# [8.0.0-alpha.12](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.11...8.0.0-alpha.12) (2025-02-24)
+
+
+### Bug Fixes
+
+* LiveQueryServer crashes using cacheAdapter on disconnect from Redis 4 server ([#9616](https://github.com/parse-community/parse-server/issues/9616)) ([bbc6bd4](https://github.com/parse-community/parse-server/commit/bbc6bd4b3f493170c13ad3314924cbf1f379eca4))
+
 # [8.0.0-alpha.11](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.10...8.0.0-alpha.11) (2025-02-12)
 
 
