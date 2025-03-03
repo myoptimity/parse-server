@@ -107,8 +107,8 @@ export class PagesRouter extends PromiseRouter {
 
   resendVerificationEmail(req) {
     const config = req.config;
-    const username = req.body.username;
-    const token = req.body.token;
+    const username = req.body?.username;
+    const token = req.body?.token;
 
     if (!config) {
       this.invalidRequest();
@@ -178,7 +178,7 @@ export class PagesRouter extends PromiseRouter {
       this.invalidRequest();
     }
 
-    const { new_password, token: rawToken } = req.body;
+    const { new_password, token: rawToken } = req.body || {};
     const token = rawToken && typeof rawToken !== 'string' ? rawToken.toString() : rawToken;
 
     if ((!token || !new_password) && req.xhr === false) {
@@ -320,7 +320,7 @@ export class PagesRouter extends PromiseRouter {
    */
   staticRoute(req) {
     // Get requested path
-    const relativePath = req.params[0];
+    const relativePath = req.params['resource'][0];
 
     // Resolve requested path to absolute path
     const absolutePath = path.resolve(this.pagesPath, relativePath);
@@ -716,7 +716,7 @@ export class PagesRouter extends PromiseRouter {
   mountStaticRoute() {
     this.route(
       'GET',
-      `/${this.pagesEndpoint}/(*)?`,
+      `/${this.pagesEndpoint}/*resource`,
       req => {
         this.setConfig(req, true);
       },

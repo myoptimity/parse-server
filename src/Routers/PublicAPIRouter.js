@@ -52,7 +52,7 @@ export class PublicAPIRouter extends PromiseRouter {
   }
 
   resendVerificationEmail(req) {
-    const username = req.body.username;
+    const username = req.body?.username;
     const appId = req.params.appId;
     const config = Config.get(appId);
 
@@ -162,7 +162,7 @@ export class PublicAPIRouter extends PromiseRouter {
       return this.missingPublicServerURL();
     }
 
-    const { new_password, token: rawToken } = req.body;
+    const { new_password, token: rawToken } = req.body || {};
     const token = rawToken && typeof rawToken !== 'string' ? rawToken.toString() : rawToken;
 
     if ((!token || !new_password) && req.xhr === false) {
