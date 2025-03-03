@@ -1,3 +1,15 @@
+# [8.0.0-alpha.15](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.14...8.0.0-alpha.15) (2025-03-03)
+
+
+### Features
+
+* Upgrade to express 5.0.1 ([#9530](https://github.com/parse-community/parse-server/issues/9530)) ([e0480df](https://github.com/parse-community/parse-server/commit/e0480dfa8d97946e57eac6b74d937978f8454b3a))
+
+
+### BREAKING CHANGES
+
+* This upgrades the internally used Express framework from version 4 to 5, which may be a breaking change. If Parse Server is set up to be mounted on an Express application, we recommend to also use version 5 of the Express framework to avoid any compatibility issues. Note that even if there are no issues after upgrading, future releases of Parse Server may introduce issues if Parse Server internally relies on Express 5-specific features which are unsupported by the Express version on which it is mounted. See the Express [migration guide](https://expressjs.com/en/guide/migrating-5.html) and [release announcement](https://expressjs.com/2024/10/15/v5-release.html#breaking-changes) for more info. ([e0480df](e0480df))
+
 # [8.0.0-alpha.14](https://github.com/parse-community/parse-server/compare/8.0.0-alpha.13...8.0.0-alpha.14) (2025-03-02)
 
 
