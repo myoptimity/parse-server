@@ -3,7 +3,6 @@
 ---
 
 [![Build Status](https://github.com/parse-community/parse-server/actions/workflows/ci.yml/badge.svg?branch=alpha)](https://github.com/parse-community/parse-server/actions/workflows/ci.yml?query=workflow%3Aci+branch%3Aalpha)
-[![Build Status](https://github.com/parse-community/parse-server/actions/workflows/ci.yml/badge.svg?branch=beta)](https://github.com/parse-community/parse-server/actions/workflows/ci.yml?query=workflow%3Aci+branch%3Abeta)
 [![Build Status](https://github.com/parse-community/parse-server/actions/workflows/ci.yml/badge.svg?branch=release)](https://github.com/parse-community/parse-server/actions/workflows/ci.yml?query=workflow%3Aci+branch%3Arelease)
 [![Snyk Badge](https://snyk.io/test/github/parse-community/parse-server/badge.svg)](https://snyk.io/test/github/parse-community/parse-server)
 [![Coverage](https://codecov.io/github/parse-community/parse-server/branch/alpha/graph/badge.svg)](https://app.codecov.io/github/parse-community/parse-server/tree/alpha)
@@ -14,7 +13,6 @@
 [![Postgres Version](https://img.shields.io/badge/postgresql-13,_14,_15,_16,_17-green.svg?logo=postgresql&style=flat)](https://www.postgresql.org)
 
 [![npm latest version](https://img.shields.io/npm/v/parse-server/latest.svg)](https://www.npmjs.com/package/parse-server)
-[![npm beta version](https://img.shields.io/npm/v/parse-server/beta.svg)](https://www.npmjs.com/package/parse-server)
 [![npm alpha version](https://img.shields.io/npm/v/parse-server/alpha.svg)](https://www.npmjs.com/package/parse-server)
 
 [![Backers on Open Collective](https://opencollective.com/parse-server/backers/badge.svg)][open-collective-link]
@@ -100,7 +98,7 @@ A big *thank you* 🙏 to our [sponsors](#sponsors) and [backers](#backers) who 
 
 Parse Server is available in different flavors on different branches:
 
-- The main branches are [release][log_release], [beta][log_beta] and [alpha][log_alpha]. See the [changelog overview](CHANGELOG.md) for details.
+- The main branches are [release][log_release] and [alpha][log_alpha]. See the [changelog overview](CHANGELOG.md) for details.
 - The long-term-support (LTS) branches are named `release-<version>.x.x`, for example `release-5.x.x`. LTS branches do not have pre-release branches.
 
 ## Long Term Support
@@ -127,36 +125,33 @@ Before you start make sure you have installed:
 
 Parse Server is continuously tested with the most recent releases of Node.js to ensure compatibility. We follow the [Node.js Long Term Support plan](https://github.com/nodejs/Release) and only test against versions that are officially supported and have not reached their end-of-life date.
 
-| Version    | Latest Version | End-of-Life | Compatible |
-|------------|----------------|-------------|------------|
-| Node.js 18 | 18.20.4        | April 2025  | ✅ Yes      |
-| Node.js 20 | 20.15.1        | April 2026  | ✅ Yes      |
-| Node.js 22 | 22.4.1         | April 2027  | ✅ Yes      |
+| Version    | Minimum Version | End-of-Life | Parse Server Support |
+|------------|-----------------|-------------|----------------------|
+| Node.js 18 | 18.20.4         | April 2025  | <= 8.x (2025)        |
+| Node.js 20 | 20.18.0         | April 2026  | <= 9.x (2026)        |
+| Node.js 22 | 22.12.0         | April 2027  | <= 10.x (2027)       |
 
 #### MongoDB
 
 Parse Server is continuously tested with the most recent releases of MongoDB to ensure compatibility. We follow the [MongoDB support schedule](https://www.mongodb.com/support-policy) and [MongoDB lifecycle schedule](https://www.mongodb.com/support-policy/lifecycles) and only test against versions that are officially supported and have not reached their end-of-life date. MongoDB "rapid releases" are ignored as these are considered pre-releases of the next major version.
 
-| Version     | Latest Version | End-of-Life   | Compatible |
-|-------------|----------------|---------------|------------|
-| MongoDB 4.2 | 4.2.25         | April 2023    | ✅ Yes      |
-| MongoDB 4.4 | 4.4.29         | February 2024 | ✅ Yes      |
-| MongoDB 5   | 5.0.26         | October 2024  | ✅ Yes      |
-| MongoDB 6   | 6.0.14         | July 2025     | ✅ Yes      |
-| MongoDB 7   | 7.0.8          | TDB           | ✅ Yes      |
-| MongoDB 8   | 8.0.0          | TDB           | ✅ Yes      |
+| Version   | Minimum Version | End-of-Life | Parse Server Support |
+|-----------|-----------------|-------------|----------------------|
+| MongoDB 6 | 6.0.19          | July 2025   | <= 8.x (2025)        |
+| MongoDB 7 | 7.0.16          | August 2026 | <= 9.x (2026)        |
+| MongoDB 8 | 8.0.4           | TDB         | <= 10.x (2027)       |
 
 #### PostgreSQL
 
 Parse Server is continuously tested with the most recent releases of PostgreSQL and PostGIS to ensure compatibility, using [PostGIS docker images](https://registry.hub.docker.com/r/postgis/postgis/tags?page=1&ordering=last_updated). We follow the [PostgreSQL support schedule](https://www.postgresql.org/support/versioning) and [PostGIS support schedule](https://www.postgis.net/eol_policy/) and only test against versions that are officially supported and have not reached their end-of-life date. Due to the extensive PostgreSQL support duration of 5 years, Parse Server drops support about 2 years before the official end-of-life date.
 
-| Version     | PostGIS Version    | End-of-Life   | Parse Server Support | Compatible |
-|-------------|--------------------|---------------|----------------------|------------|
-| Postgres 13 | 3.1, 3.2, 3.3, 3.4, 3.5 | November 2025 | <= 6.x (2023)        | ✅ Yes      |
-| Postgres 14 | 3.5                | November 2026 | <= 7.x (2024)        | ✅ Yes      |
-| Postgres 15 | 3.5                | November 2027 | <= 8.x (2025)        | ✅ Yes      |
-| Postgres 16 | 3.5                | November 2028 | <= 9.x (2026)        | ✅ Yes      |
-| Postgres 17 | 3.5                | November 2029 | <= 9.x (2026)        | ✅ Yes      |
+| Version     | PostGIS Version         | End-of-Life   | Parse Server Support |
+|-------------|-------------------------|---------------|----------------------|
+| Postgres 13 | 3.1, 3.2, 3.3, 3.4, 3.5 | November 2025 | <= 6.x (2023)        |
+| Postgres 14 | 3.5                     | November 2026 | <= 7.x (2024)        |
+| Postgres 15 | 3.3, 3.4, 3.5           | November 2027 | <= 8.x (2025)        |
+| Postgres 16 | 3.5                     | November 2028 | <= 9.x (2026)        |
+| Postgres 17 | 3.5                     | November 2029 | <= 10.x (2027)       |
 
 ### Locally
 
@@ -440,8 +435,6 @@ const server = ParseServer({
 
 ## Custom Routes
 
-**Caution, this is an experimental feature that may not be appropriate for production.**
-
 Custom routes allow to build user flows with webpages, similar to the existing password reset and email verification features. Custom routes are defined with the `pages` option in the Parse Server configuration:
 
 ### Example
@@ -451,7 +444,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for custom routes
+    enableRouter: true,
     customRoutes: [{
       method: 'GET',
       path: 'custom_route',
@@ -488,7 +481,7 @@ The following paths are already used by Parse Server's built-in features and are
 | Parameter                    | Optional | Type            | Default value | Example values        | Environment variable               | Description                                                                                                                                                                                                                                                  |
 |------------------------------|----------|-----------------|---------------|-----------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pages`                      | yes      | `Object`        | `undefined`   | -                     | `PARSE_SERVER_PAGES`               | The options for pages such as password reset and email verification.                                                                                                                                                                                         |
-| `pages.enableRouter`         | yes      | `Boolean`       | `false`       | -                     | `PARSE_SERVER_PAGES_ENABLE_ROUTER` | Is `true` if the pages router should be enabled; this is required for any of the pages options to take effect. **Caution, this is an experimental feature that may not be appropriate for production.**                                                      |
+| `pages.enableRouter`         | yes      | `Boolean`       | `false`       | -                     | `PARSE_SERVER_PAGES_ENABLE_ROUTER` | Is `true` if the pages router should be enabled; this is required for any of the pages options to take effect.                                                                                                                                               |
 | `pages.customRoutes`         | yes      | `Array`         | `[]`          | -                     | `PARSE_SERVER_PAGES_CUSTOM_ROUTES` | The custom routes. The routes are added in the order they are defined here, which has to be considered since requests traverse routes in an ordered manner. Custom routes are traversed after build-in routes such as password reset and email verification. |
 | `pages.customRoutes.method`  |          | `String`        | -             | `GET`, `POST`         | -                                  | The HTTP method of the custom route.                                                                                                                                                                                                                         |
 | `pages.customRoutes.path`    |          | `String`        | -             | `custom_page`         | -                                  | The path of the custom route. Note that the same path can used if the `method` is different, for example a path `custom_page` can have two routes, a `GET` and `POST` route, which will be invoked depending on the HTTP request method.                     |
@@ -611,8 +604,6 @@ Assuming the script above is named, `parse_idempotency_delete_expired_records.sh
 
 ### Pages
 
-**Caution, this is an experimental feature that may not be appropriate for production.**
-
 Custom pages as well as feature pages (e.g. password reset, email verification) can be localized with the `pages` option in the Parse Server configuration:
 
 ```js
@@ -620,7 +611,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for localization
+    enableRouter: true,
     enableLocalization: true,
   }
 }
@@ -668,7 +659,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for localization
+    enableRouter: true,
     enableLocalization: true,
     customUrls: {
       passwordReset: 'https://example.com/page.html'
@@ -725,7 +716,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for localization
+    enableRouter: true,
     enableLocalization: true,
     localizationJsonPath: './private/localization.json',
     localizationFallbackLocale: 'en'
@@ -750,7 +741,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for localization
+    enableRouter: true,
     placeholders: {
       exampleKey: 'exampleValue'
     }
@@ -764,7 +755,7 @@ const api = new ParseServer({
   ...otherOptions,
 
   pages: {
-    enableRouter: true, // Enables the experimental feature; required for localization
+    enableRouter: true,
     placeholders: async (params) => {
       const value = await doSomething(params.locale);
       return {
@@ -784,7 +775,7 @@ The following parameter and placeholder keys are reserved because they are used 
 | Parameter                                       | Optional | Type                                  | Default value                          | Example values                                       | Environment variable                                            | Description                                                                                                                                                                                                   |
 |-------------------------------------------------|----------|---------------------------------------|----------------------------------------|------------------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pages`                                         | yes      | `Object`                              | `undefined`                            | -                                                    | `PARSE_SERVER_PAGES`                                            | The options for pages such as password reset and email verification.                                                                                                                                          |
-| `pages.enableRouter`                            | yes      | `Boolean`                             | `false`                                | -                                                    | `PARSE_SERVER_PAGES_ENABLE_ROUTER`                              | Is `true` if the pages router should be enabled; this is required for any of the pages options to take effect. **Caution, this is an experimental feature that may not be appropriate for production.**       |
+| `pages.enableRouter`                            | yes      | `Boolean`                             | `false`                                | -                                                    | `PARSE_SERVER_PAGES_ENABLE_ROUTER`                              | Is `true` if the pages router should be enabled; this is required for any of the pages options to take effect.                                                                                                |
 | `pages.enableLocalization`                      | yes      | `Boolean`                             | `false`                                | -                                                    | `PARSE_SERVER_PAGES_ENABLE_LOCALIZATION`                        | Is true if pages should be localized; this has no effect on custom page redirects.                                                                                                                            |
 | `pages.localizationJsonPath`                    | yes      | `String`                              | `undefined`                            | `./private/translations.json`                        | `PARSE_SERVER_PAGES_LOCALIZATION_JSON_PATH`                     | The path to the JSON file for localization; the translations will be used to fill template placeholders according to the locale.                                                                              |
 | `pages.localizationFallbackLocale`              | yes      | `String`                              | `en`                                   | `en`, `en-GB`, `default`                             | `PARSE_SERVER_PAGES_LOCALIZATION_FALLBACK_LOCALE`               | The fallback locale for localization if no matching translation is provided for the given locale. This is only relevant when providing translation resources via JSON file.                                   |
