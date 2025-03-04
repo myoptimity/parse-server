@@ -1,3 +1,38 @@
+# [8.0.0](https://github.com/parse-community/parse-server/compare/7.4.0...8.0.0) (2025-03-04)
+
+
+### Bug Fixes
+
+* LiveQueryServer crashes using cacheAdapter on disconnect from Redis 4 server ([#9616](https://github.com/parse-community/parse-server/issues/9616)) ([bbc6bd4](https://github.com/parse-community/parse-server/commit/bbc6bd4b3f493170c13ad3314924cbf1f379eca4))
+* Push adapter not loading on some versions of Node 22 ([#9524](https://github.com/parse-community/parse-server/issues/9524)) ([ff7f671](https://github.com/parse-community/parse-server/commit/ff7f671c79f5dcdc44e4319a10f3654e12662c23))
+* Remove username from email verification and password reset process ([#8488](https://github.com/parse-community/parse-server/issues/8488)) ([d21dd97](https://github.com/parse-community/parse-server/commit/d21dd973363f9c5eca86a1007cb67e445b0d2e02))
+* Security upgrade node from 20.17.0-alpine3.20 to 20.18.2-alpine3.20 ([#9583](https://github.com/parse-community/parse-server/issues/9583)) ([8f85ae2](https://github.com/parse-community/parse-server/commit/8f85ae205474f65414c0536754de12c87dbbf82a))
+
+### Features
+
+* Add dynamic master key by setting Parse Server option `masterKey` to a function ([#9582](https://github.com/parse-community/parse-server/issues/9582)) ([6f1d161](https://github.com/parse-community/parse-server/commit/6f1d161a2f263a166981f9544cf2aadce65afe23))
+* Add support for MongoDB `databaseOptions` keys `autoSelectFamily`, `autoSelectFamilyAttemptTimeout` ([#9579](https://github.com/parse-community/parse-server/issues/9579)) ([5966068](https://github.com/parse-community/parse-server/commit/5966068e963e7a79eac8fba8720ee7d83578f207))
+* Add support for MongoDB `databaseOptions` keys `minPoolSize`, `connectTimeoutMS`, `socketTimeoutMS` ([#9522](https://github.com/parse-community/parse-server/issues/9522)) ([91618fe](https://github.com/parse-community/parse-server/commit/91618fe738217b937cbfcec35969679e0adb7676))
+* Add TypeScript support ([#9550](https://github.com/parse-community/parse-server/issues/9550)) ([59e46d0](https://github.com/parse-community/parse-server/commit/59e46d0aea3e6529994d98160d993144b8075291))
+* Change default value of Parse Server option `encodeParseObjectInCloudFunction` to `true` ([#9527](https://github.com/parse-community/parse-server/issues/9527)) ([5c5ad69](https://github.com/parse-community/parse-server/commit/5c5ad69b4a917b7ed7c328a8255144e105c40b08))
+* Deprecate `PublicAPIRouter` in favor of `PagesRouter` ([#9526](https://github.com/parse-community/parse-server/issues/9526)) ([7f66629](https://github.com/parse-community/parse-server/commit/7f666292e8b9692966672486b7108edefc356309))
+* Increase required minimum MongoDB versions to `6.0.19`, `7.0.16`, `8.0.4` ([#9531](https://github.com/parse-community/parse-server/issues/9531)) ([871e508](https://github.com/parse-community/parse-server/commit/871e5082a9fd768cee3012e26d3c8ddff5c2952c))
+* Increase required minimum Node versions to `18.20.4`, `20.18.0`, `22.12.0` ([#9521](https://github.com/parse-community/parse-server/issues/9521)) ([4e151cd](https://github.com/parse-community/parse-server/commit/4e151cd0a52191809452f197b2f29c3a12525b67))
+* Increase required minimum versions to Postgres `15`, PostGIS `3.3` ([#9538](https://github.com/parse-community/parse-server/issues/9538)) ([89c9b54](https://github.com/parse-community/parse-server/commit/89c9b5485a07a411fb35de4f8cf0467e7eb01f85))
+* Upgrade to express 5.0.1 ([#9530](https://github.com/parse-community/parse-server/issues/9530)) ([e0480df](https://github.com/parse-community/parse-server/commit/e0480dfa8d97946e57eac6b74d937978f8454b3a))
+* Upgrade to Parse JS SDK 6.0.0 ([#9624](https://github.com/parse-community/parse-server/issues/9624)) ([bf9db75](https://github.com/parse-community/parse-server/commit/bf9db75e8685def1407034944725e758bc926c26))
+
+
+### BREAKING CHANGES
+
+* This upgrades the internally used Express framework from version 4 to 5, which may be a breaking change. If Parse Server is set up to be mounted on an Express application, we recommend to also use version 5 of the Express framework to avoid any compatibility issues. Note that even if there are no issues after upgrading, future releases of Parse Server may introduce issues if Parse Server internally relies on Express 5-specific features which are unsupported by the Express version on which it is mounted. See the Express [migration guide](https://expressjs.com/en/guide/migrating-5.html) and [release announcement](https://expressjs.com/2024/10/15/v5-release.html#breaking-changes) for more info. ([e0480df](e0480df))
+* This upgrades to the Parse JS SDK 6.0.0. See the [change log](https://github.com/parse-community/Parse-SDK-JS/releases/tag/6.0.0) of the Parse JS SDK for breaking changes and more details. ([bf9db75](bf9db75))
+* This removes the username from the email verification and password reset process to prevent storing personally identifiable information (PII) in server and infrastructure logs. Customized HTML pages or emails related to email verification and password reset may need to be adapted accordingly. See the new templates that come bundled with Parse Server and the [migration guide](https://github.com/parse-community/parse-server/blob/alpha/8.0.0.md) for more details. ([d21dd97](d21dd97))
+* This releases increases the required minimum versions to Postgres `15`, PostGIS `3.3` and removes support for Postgres `13`, `14`, PostGIS `3.1`, `3.2`. ([89c9b54](89c9b54))
+* The default value of Parse Server option `encodeParseObjectInCloudFunction` changes to `true`; the option has been deprecated and will be removed in a future version. ([5c5ad69](5c5ad69))
+* This releases increases the required minimum MongoDB versions to `6.0.19`, `7.0.16`, `8.0.4` and removes support for MongoDB `4`, `5`. ([871e508](871e508))
+* This releases increases the required minimum Node versions to 18.20.4, 20.18.0, 22.12.0 and removes unofficial support for Node 19. ([4e151cd](4e151cd))
+
 # [7.4.0](https://github.com/parse-community/parse-server/compare/7.3.0...7.4.0) (2024-12-23)
 
 
